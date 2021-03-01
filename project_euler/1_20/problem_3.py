@@ -5,7 +5,6 @@ What is the largest prime factor of the number 600851475143 ?
 """
 from math import sqrt
 
-
 NUMBER = 600851475143
 
 
@@ -16,17 +15,13 @@ def is_prime(n):
     return True
 
 
-dividers = []
-k = 2
+dividers = set()
+k = 1
 number = NUMBER
-while True:
+while (k := k + 1) <= number:
     if number % k == 0:
         number /= k
-        dividers.append(k)
-    k += 1
-    number = int(number)
-    if k > number:
-        break
-print(dividers)
+        dividers.add(k)
+
 filter(is_prime, dividers)
 print(max(dividers))

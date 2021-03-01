@@ -16,7 +16,7 @@ primes = []
 for x in range(2, MAXSIZE - 1):
     if sieve[x] != 0:
         for j in range(x**2, MAXSIZE, x):
-                sieve[j] = 0
+            sieve[j] = 0
 sieve = list(filter(lambda x: x != 0, sieve))
 print(sum(sieve))
 print("TIME: ", time.process_time() - t)

@@ -4,8 +4,6 @@
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
 from collections import defaultdict
-
-all_dividers = set()
 NUMBER = 20
 
 
@@ -16,16 +14,15 @@ def get_dividers(n):
         if n % k == 0:
             divs[k] += 1
             n /= k
-            k = 2
         else:
             k += 1
         if k > n:
-            return divs
+            return divs.items()
 
 
 result = defaultdict(int)
 for i in range(2, NUMBER+1):
-    for key, val in get_dividers(i).items():
+    for key, val in get_dividers(i):
         if result[key] < val:
             result[key] = val
 
