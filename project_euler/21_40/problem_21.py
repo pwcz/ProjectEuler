@@ -35,4 +35,5 @@ def calculate():
     print((sum([x for x in range(2, 10000) if is_amicable(x)])))
 
 
-print(f"{timeit.timeit(stmt=lambda: calculate(), number=1):.3f} s")
+if __name__ == "__main__":
+    print(f"{timeit.timeit(stmt=lambda: calculate(), number=1):.3f} s")
